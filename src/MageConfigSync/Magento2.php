@@ -160,10 +160,11 @@ class Magento2 implements InstallationDetectorInterface
     protected function getBootstrap()
     {
         if (!$this->_magentoBootstrap) {
-            if (!class_exists('\Magento\Framework\App\Bootstrap')) {
+            // fix Autoloader is not registered, cannot be retrieved.
+            /* if (!class_exists('\Magento\Framework\App\Bootstrap')) { */
                 $mage_filename = $this->_magentoRootDir . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'bootstrap.php';
                 require_once $mage_filename;
-            }
+            /* } */
 
             $this->_magentoBootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
         }
