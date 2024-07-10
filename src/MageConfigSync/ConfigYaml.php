@@ -8,6 +8,9 @@ use Symfony\Component\Yaml\Dumper;
 
 class ConfigYaml
 {
+    protected $_environment;
+    protected $_raw_data;
+
     public function __construct(array $data, $environment = false)
     {
         $this->_environment = $environment;
